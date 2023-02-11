@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="images/favicon.png" />
+        <meta charset="UTF-8" />
+        <meta
+            http-equiv="X-UA-Compatible"
+            content="IE=edge"
+        />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+        />
+
+        <!-- Favicon -->
+        <link
+            rel="shortcut icon"
+            href="./images/got-icon2.png"
+            type="image/x-icon"
+        />
+
+        <!-- FONT LINKS -->
+        <link
+            rel="preconnect"
+            href="https://fonts.googleapis.com"
+        />
+        <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&family=Roboto:wght@100;300;400;500;700;900&family=Titillium+Web:wght@200;300;400;600;700;900&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- CSS Style -->
+        <link rel="stylesheet" href="./style.css" />
+
+        <!-- CSS Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+            crossorigin="anonymous"
+        />
+
+        <!-- Bootstrap Icons -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
+        />
+
+        <title>GoT Matching Game</title>
+    </head>
+    <body>
+        <div class="container p-0 m-0">
+            <section class="p-0 m-0 start-container">
+                <div class="warning-container">
+                    <div class="warning-start-container">
+                        <div class="p-0">
+                            <div
+                                class="alert alert-light alert-dismissible fade show"
+                                role="alert"
+                                id="warning-box-start"
+                                data-bs-theme="dark"
+                            >
+                                <div class="warning-text">
+                                    <h5
+                                        class="warning-text text-light"
+                                        id="warning-text-title"
+                                    >
+                                        Welcome to GoT
+                                        Matching Game!
+                                    </h5>
+                                    <p
+                                        class="mt-4"
+                                        id="warning-text-subtitle"
+                                    >
+                                        I hope you find this
+                                        game better than
+                                        GoT's last season.
+                                    </p>
+                                    <p
+                                        class="mt-3"
+                                        id="warning-text-subtitle"
+                                    >
+                                        Once you're ready,
+                                        just click on Start
+                                        Button and the timer
+                                        will start running.
+                                    </p>
+                                    <p
+                                        class="mt-3"
+                                        id="warning-text-subtitle"
+                                    >
+                                        You can also listen
+                                        to GoT's opening
+                                        song clicking on the
+                                        player above.
+                                    </p>
+                                    <div>
+                                        <button
+                                            type="button"
+                                            class="btn mt-3"
+                                            id="btn-watch-start"
+                                        >
+                                            Start Game!
+                                        </button>
+                                    </div>
+                                    <div class="cronometer">
+                                        <h3 id="counter">
+                                            00:00:00
+                                        </h3>
+                                    </div>
+                                </div>
+
+                                <div data-bs-theme="dark">
+                                    <button
+                                        type="button"
+                                        class="btn-close btn-close-white hide"
+                                        style="color: white"
+                                        id="btn-start"
+                                        data-bs-dismiss="alert"
+                                        aria-label="Close"
+                                    ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="warning-finish-container">
+                        <div class="p-3">
+                            <div
+                                class="alert alert-light alert-dismissible fade show"
+                                role="alert"
+                                id="warning-box-finish"
+                                data-bs-theme="dark"
+                            >
+                                <div class="warning-text">
+                                    <h5
+                                        class="warning-text text-light"
+                                    >
+                                        Yay, you made it!
+                                    </h5>
+                                    <p id="time-text"></p>
+                                    <p id="count-text"></p>
+                                </div>
+                                <div>
+                                    <button
+                                        type="button"
+                                        class="btn btn-outline-light mt-3"
+                                        id="try-again"
+                                    >
+                                        Try Again
+                                    </button>
+                                </div>
+                                <div data-bs-theme="dark">
+                                    <button
+                                        type="button"
+                                        class="btn-close btn-close-white"
+                                        style="color: white"
+                                        id="btn-finish"
+                                        data-bs-dismiss="alert"
+                                        aria-label="Close"
+                                    ></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="audio-container">
+                    <audio controls id="audio-file">
+                        <source
+                            src="./8d82b5_Game_of_Thrones_Theme_Song.mp3"
+                        />
+                        Your browser does not support the
+                        audio tag.
+                    </audio>
+                </div>
+            </section>
+
+            <section class="memory-game">
+                <div
+                    class="memory-card"
+                    data-framework="baelish"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/baelish.jpg"
+                        alt="Baelish"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="arya"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/arya.jpg"
+                        alt="Arya"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="eddard"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/eddard.jpg"
+                        alt="Eddard"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="kahl"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/kahl.jpg"
+                        alt="Kahl"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="snow"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/jon snow.jpg"
+                        alt="Snow"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="theon"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/theon.jpg"
+                        alt="Theon"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="catelyn"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/catelyn.jpg"
+                        alt="Catelyn"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="tyrion"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/tyrion.jpg"
+                        alt="Tyrion"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="arya"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/arya.jpg"
+                        alt="Arya"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="kahl"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/kahl.jpg"
+                        alt="Kahl"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="baelish"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/baelish.jpg"
+                        alt="Baelish"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="theon"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/theon.jpg"
+                        alt="Theon"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="catelyn"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/catelyn.jpg"
+                        alt="Catelyn"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="tyrion"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/tyrion.jpg"
+                        alt="Tyrion"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="snow"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/jon snow.jpg"
+                        alt="Snow"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+
+                <div
+                    class="memory-card"
+                    data-framework="eddard"
+                >
+                    <img
+                        class="front-face"
+                        src="./images/eddard.jpg"
+                        alt="Eddard"
+                    />
+                    <img
+                        class="back-face"
+                        src="./images/cover.jpg"
+                        alt="Cover"
+                    />
+                </div>
+            </section>
+
+            <section class="final-container p-0 m-0">
+                <div class="click-counter">
+                    <h5>Click Counter</h5>
+                    <span>
+                        <span id="click-counter"></span>
+                    </span>
+                </div>
+
+                <div class="footer">
+                    Developed by <br />
+                    Mariana Castro &copy; 2023
+                </div>
+            </section>
+        </div>
+
+        <!-- Script Lib -->
+        <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+
+        <!-- JS Script -->
+        <script src="./index.js"></script>
+    </body>
+</html>

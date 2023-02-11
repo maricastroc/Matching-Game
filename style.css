@@ -1,0 +1,360 @@
+/*Flex-box property: order (default: due - define que cada flex-item pertence ao mesmo grupo*/
+/*e cada um deles será alocado de acordo com sua posição de origem (html)*/
+
+/*Flex-box property: order (default: due - define que cada flex-item pertence ao mesmo grupo*/
+/*e cada um deles será alocado de acordo com sua posição de origem (html)*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0c0c0c;
+    --font-color: #ffffff;
+    --font-color-light: #c8c8c8;
+    --primary-color: #4bc3f6;
+    --secondary-color: #4bc3f6;
+    --shadow-color: #0000004d;
+    --footer-color: #a1a1a1;
+}
+
+body {
+    background-image: url(./images/background-img.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    min-height: 100vh;
+    padding: 2.5rem;
+}
+
+.container {
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/*Start Container*/
+.start-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#warning-box-start {
+    background-color: var(--bg-color);
+    max-width: 18rem;
+}
+
+#warning-text-title {
+    font-size: 19px;
+    line-height: 25px;
+}
+
+#warning-text-subtitle {
+    color: var(--font-color-light);
+}
+
+#warning-box-finish {
+    background-color: var(--bg-color);
+    max-width: 21rem;
+}
+
+audio {
+    width: 18.5rem;
+    height: 3.2rem;
+}
+
+#try-again {
+    transition: 0.7s;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+#try-again:hover {
+    transition: 0.7s;
+    color: var(--bg-color);
+    font-weight: 500;
+}
+
+.hide {
+    display: none;
+}
+
+/*Memory-Game*/
+.memory-game {
+    width: 40rem;
+    height: 40rem;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.memory-card {
+    min-width: calc(25% - 10px);
+    min-height: calc(25% - 10px);
+    margin: 0.3rem;
+    position: relative;
+    transform: scale(1);
+    box-shadow: 1px 1px 1px var(--shadow-color);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    position: absolute; /* vai se posicionar relativamente ao elemento que estiver com: position relative*/
+    border-radius: 5px;
+    backface-visibility: hidden; /*quando girado em 180o, não será mais visível*/
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-default {
+    cursor: default;
+}
+
+/*Final Container*/
+.final-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 12rem;
+}
+
+.click-counter {
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid var(--font-color) 2px;
+    border-radius: 10px;
+    padding: 0.8rem 1rem;
+}
+
+.click-counter h5 {
+    font-size: 18px;
+}
+
+.click-counter span {
+    color: var(--primary-color);
+}
+
+.footer {
+    text-align: right;
+    color: var(--footer-color);
+}
+
+/*Cronômetro*/
+.cronometer {
+    max-width: 30px;
+
+    background-color: var(--bg-color);
+    border: var(--font-color);
+    color: var(--font-color);
+}
+
+.cronometer h1 {
+    font-family: "Courier New", Courier, monospace;
+    margin-top: 20px;
+}
+
+#counter {
+    font-family: "Titillium Web";
+    margin-bottom: 20px;
+    margin-top: 10px;
+    margin-left: 1px;
+}
+
+#btn-watch-start {
+    color: var(--secondary-color);
+    font-weight: 500;
+    border: solid 1px var(--font-color);
+    transition: 0.7s;
+}
+
+#btn-watch-start:hover {
+    color: var(--bg-color);
+    font-weight: 500;
+    background-color: var(--font-color);
+    border: solid 1px var(--font-color);
+}
+
+#time-text,
+#count-text {
+    margin-top: 25px;
+    font-size: 19px;
+    color: var(--primary-color);
+    line-height: 25px;
+}
+
+@media (max-width: 1220px) {
+    #warning-box-start {
+        max-width: 15rem;
+    }
+    #warning-box-finish {
+        max-width: 15rem;
+    }
+    #time-text,
+    #count-text {
+        font-size: 16px;
+    }
+    audio {
+        width: 15rem;
+        height: 2.8rem;
+    }
+}
+
+@media (max-width: 1140px) {
+    .memory-game {
+        width: 32rem;
+        height: 32rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #warning-box-start {
+        max-width: 100vw;
+        text-align: center;
+        padding: 1.3rem;
+        height: 19rem;
+    }
+    #warning-box-finish {
+        max-width: 100vw;
+    }
+    .cronometer {
+        max-width: 100%;
+    }
+    audio {
+        width: 18.5rem;
+        height: 3.2rem;
+    }
+    .memory-game {
+        width: 40rem;
+        height: 40rem;
+    }
+    .final-container {
+        width: 40rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+    }
+}
+
+@media (max-width: 676px) {
+    #warning-box-start {
+        max-width: 32rem;
+        height: 22rem;
+    }
+    #warning-box-finish {
+        max-width: auto;
+    }
+    .memory-game {
+        width: 32rem;
+        height: 32rem;
+    }
+    .final-container {
+        width: 32rem;
+    }
+}
+
+@media (max-width: 545px) {
+    .container {
+        height: auto;
+    }
+    #warning-box-start {
+        max-width: 23rem;
+        height: auto;
+    }
+    #warning-box-finish {
+        max-width: auto;
+    }
+    .memory-game {
+        width: 28rem;
+        height: 28rem;
+        margin-bottom: 25rem;
+    }
+    .memory-card {
+        min-width: calc(30% - 10px);
+        min-height: calc(30% - 10px);
+    }
+    .final-container {
+        width: 23rem;
+    }
+}
+
+@media (max-width: 424px) {
+    #warning-box-start {
+        max-width: 21rem;
+    }
+    #warning-box-finish {
+        max-width: auto;
+    }
+    .memory-game {
+        width: 25rem;
+        height: 25rem;
+    }
+    .final-container {
+        width: 21rem;
+    }
+}
+
+@media (max-width: 374px) {
+    #warning-box-start {
+        max-width: 21rem;
+    }
+    #warning-box-finish {
+        max-width: auto;
+    }
+    .memory-game {
+        width: 19rem;
+        height: 19rem;
+        margin-bottom: 55rem;
+    }
+    .memory-card {
+        min-width: calc(50% - 10px);
+        min-height: calc(50% - 10px);
+    }
+    .final-container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer {
+        text-align: center;
+        margin-top: 1rem;
+    }
+}
